@@ -1,6 +1,13 @@
+import { Link } from "react-router-dom";
+
+
 function Home(){
     return (
-        <h1>This is home</h1>
+        <div>
+        <h1>Welcome to our Movie-app</h1>
+        <h5>Sign in and watch movies for free</h5>
+        <button><Link to="/SignIn">SignIn</Link></button>
+        </div>
     );
 }
 export default Home
