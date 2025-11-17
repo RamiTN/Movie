@@ -10,6 +10,8 @@ function Navbar() {
         <li><Link to="/Mymovies">Mymovies</Link></li>
         <li><Link to="/Search">Find movies</Link></li>
         <li><Link to="/about">About</Link></li>
+        
+
       </ul>
     </nav>
   );

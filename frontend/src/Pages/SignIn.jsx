@@ -18,7 +18,7 @@ function SignIn(){
         console.log('Result:', result);
         
         if (result.status === 'success') {
-          navigate('/Dashboard');
+          navigate('/Userdash');
         } else {
           alert(result.message);
         }
