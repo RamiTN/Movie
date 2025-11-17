@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Userdash() {
-  const [movies, setMovies] = useState([]);     // ← Fixed
-  const [loading, setLoading] = useState(true); // ← Good
-  const [error, setError] = useState(null);     // ← Fixed (was missing!)
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const API_KEY = "784c2d7b";
@@ -30,7 +30,7 @@ function Userdash() {
           .sort((a, b) => b.Year - a.Year)
           .slice(0, 20);
 
-        setMovies(sortedMovies);    // ← Now works
+        setMovies(sortedMovies);
       } catch (err) {
         console.error("Failed to fetch movies:", err);
         setError("Failed to load movies. Please try again later.");
@@ -44,45 +44,21 @@ function Userdash() {
 
   return (
     <div style={{ padding: "20px", maxWidth: "1200px", margin: "0 auto" }}>
-      {/* Logout Button */}
-      <div style={{ marginBottom: "20px" }}>
-        <button
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#dc3545",
-            color: "white",
-            border: "none",
-            borderRadius: "6px",
-            cursor: "pointer",
-            fontSize: "14px",
-          }}
-          onMouseOver={(e) => e.currentTarget.style.backgroundColor = "#c82333"}
-          onMouseOut={(e) => e.currentTarget.style.backgroundColor = "#dc3545"}
-        >
-          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-            Logout
-          </Link>
-        </button>
-      </div>
-
       <h1 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>Welcome Back!</h1>
-      <h2 style={{ margin: "30px 0 20px", color: "#333" }}>Popular Movies</h2>
+      <h2 style={{ margin: "30px 0 20px", color: "#b1b1b1ff" }}>Popular Movies</h2>
 
-      {/* Loading */}
       {loading && (
         <div style={{ textAlign: "center", padding: "40px", fontSize: "18px" }}>
           <p>Loading awesome movies for you...</p>
         </div>
       )}
 
-      {/* Error */}
       {error && (
         <div style={{ color: "red", textAlign: "center", padding: "20px", backgroundColor: "#ffebee", borderRadius: "8px" }}>
           <p><strong>Error:</strong> {error}</p>
         </div>
       )}
 
-      {/* Movies Grid */}
       {!loading && !error && movies.length > 0 && (
         <div
           style={{
@@ -102,7 +78,9 @@ function Userdash() {
                 boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                 transition: "transform 0.2s, box-shadow 0.2s",
                 backgroundColor: "white",
+                cursor: "pointer",
               }}
+              onClick={() => window.open(`https://www.imdb.com/title/${movie.imdbID}`, '_blank')}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.15)";
@@ -151,6 +129,26 @@ function Userdash() {
           No movies found. Try again later!
         </p>
       )}
+
+      <div style={{ marginTop: "20px" }}>
+        <button
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#dc3545",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontSize: "14px",
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = "#c82333"}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = "#dc3545"}
+        >
+          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+            Logout
+          </Link>
+        </button>
+      </div>
     </div>
   );
 }

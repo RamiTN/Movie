@@ -1,11 +1,123 @@
 *{
-    margin: 0;
-    padding: 0;
+  padding:0;
+  margin: 0;    
 }
-nav{
-    display: flex;
+html {
+  scroll-behavior: smooth;
 }
-ul{
- display: flex;
- list-style-type: none;   
+
+.navbar {
+  background-color: blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  padding: 50px 20px;
+  background-color: rgba(0, 0, 139, 0.8);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin-left: 350px;;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 25px;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar a:hover {
+  color: lightblue;
+  transform: scale(1.1);
+}
+
+.navbar h1{
+    margin-left: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+  min-height: 100vh;
+  padding: 40px;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  background: linear-gradient(to bottom, blue, lightblue);
+  color: white;
+  text-align: center;
+}
+
+main h1 {
+  font-size: 90px;
+  margin: 0;
+}
+
+main button {
+  padding: 12px 25px;
+  border-radius: 10px;
+  background-color: rgb(63, 127, 149);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+/* Hover effect for button */
+main button:hover {
+  background-color: rgb(50, 100, 120);
+  transform: scale(1.05);
+}
+
+main button a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+main button a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  background: linear-gradient(to bottom, lightblue, rgb(188, 246, 255));
+  color: white;
+  text-align: center;
+}
+
+.footer h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.footer ul a{
+    color: white;
+    text-decoration: none;
+}
+.footer ul{
+        list-style-type: none;
 }
