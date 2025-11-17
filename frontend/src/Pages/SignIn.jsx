@@ -40,7 +40,7 @@ function SignIn(){
         <input type="password" name="pwd" id="pwd" placeholder="enter your password" required/>
         <input type="submit" />
         </form>
-        <Link to="/SignUp">Create account</Link>
+        <Link to="/SignUp">Don't have an account yet? Create account</Link>
     </fieldset>
         </div>
     );

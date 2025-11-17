@@ -20,7 +20,7 @@ function Footer() {
       <h3>Contact</h3>
       Tunis, Tunisia
     contact@gmail.com
-    +216 94 477 211
+    +216 xx xxx xxx
     </div>
     </footer>
   );
