@@ -8,31 +8,25 @@ function Userdash() {
 
   useEffect(() => {
     const API_KEY = "784c2d7b";
-    const searchTerms = ["Batman", "Superman", "Spider-Man", "Avengers", "Star Wars"];
 
     const fetchMovies = async () => {
       try {
-        const moviePromises = searchTerms.map(term =>
-          fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${term}&type=movie`)
-            .then(res => {
-              if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-              return res.json();
-            })
-        );
+        // More reliable search keywords
+        const keywords = ["love", "war", "life", "man", "star", "dark", "hero", "death", "city", "night"];
+        const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
 
-        const results = await Promise.all(moviePromises);
+        const res = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${randomKeyword}&type=movie&page=1`);
+        const data = await res.json();
 
-        const validResults = results
-          .filter(result => result.Response === "True" && Array.isArray(result.Search))
-          .flatMap(result => result.Search);
-
-        const sortedMovies = validResults
-          .sort((a, b) => b.Year - a.Year)
-          .slice(0, 20);
-
-        setMovies(sortedMovies);
+        if (data.Response === "True" && data.Search.length > 0) {
+          const shuffled = data.Search.sort(() => Math.random() - 0.5);
+          setMovies(shuffled.slice(0, 10)); // show 10 movies
+        } else {
+          setMovies([]);
+          setError("No movies found. Try again.");
+        }
       } catch (err) {
-        console.error("Failed to fetch movies:", err);
+        console.error(err);
         setError("Failed to load movies. Please try again later.");
       } finally {
         setLoading(false);
@@ -47,28 +41,19 @@ function Userdash() {
       <h1 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>Welcome Back!</h1>
       <h2 style={{ margin: "30px 0 20px", color: "#b1b1b1ff" }}>Popular Movies</h2>
 
-      {loading && (
-        <div style={{ textAlign: "center", padding: "40px", fontSize: "18px" }}>
-          <p>Loading awesome movies for you...</p>
-        </div>
-      )}
-
-      {error && (
-        <div style={{ color: "red", textAlign: "center", padding: "20px", backgroundColor: "#ffebee", borderRadius: "8px" }}>
-          <p><strong>Error:</strong> {error}</p>
-        </div>
-      )}
+      {loading && <p>Loading awesome movies for you...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
       {!loading && !error && movies.length > 0 && (
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
+            gridTemplateColumns: "repeat(4, 1fr)", // 4 movies per row
             gap: "24px",
             marginTop: "20px",
           }}
         >
-          {movies.map((movie) => (
+          {movies.map(movie => (
             <div
               key={movie.imdbID}
               style={{
@@ -80,26 +65,21 @@ function Userdash() {
                 backgroundColor: "white",
                 cursor: "pointer",
               }}
-              onClick={() => window.open(`https://www.imdb.com/title/${movie.imdbID}`, '_blank')}
-              onMouseEnter={(e) => {
+              onClick={() => window.open(`https://www.imdb.com/title/${movie.imdbID}`, "_blank")}
+              onMouseEnter={e => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.15)";
               }}
-              onMouseLeave={(e) => {
+              onMouseLeave={e => {
                 e.currentTarget.style.transform = "translateY(0)";
                 e.currentTarget.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
               }}
             >
               <img
                 src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450?text=No+Poster"}
-                alt={`Poster for ${movie.Title}`}
+                alt={movie.Title}
                 loading="lazy"
-                style={{
-                  width: "100%",
-                  height: "270px",
-                  objectFit: "cover",
-                  backgroundColor: "#f0f0f0",
-                }}
+                style={{ width: "100%", height: "270px", objectFit: "cover", backgroundColor: "#f0f0f0" }}
               />
               <div style={{ padding: "12px" }}>
                 <h4
@@ -115,19 +95,11 @@ function Userdash() {
                 >
                   {movie.Title}
                 </h4>
-                <p style={{ margin: 0, fontSize: "13px", color: "#555" }}>
-                  {movie.Year}
-                </p>
+                <p style={{ margin: 0, fontSize: "13px", color: "#555" }}>{movie.Year}</p>
               </div>
             </div>
           ))}
         </div>
-      )}
-
-      {!loading && !error && movies.length === 0 && (
-        <p style={{ textAlign: "center", padding: "40px", color: "#666" }}>
-          No movies found. Try again later!
-        </p>
       )}
 
       <div style={{ marginTop: "20px" }}>
@@ -141,8 +113,8 @@ function Userdash() {
             cursor: "pointer",
             fontSize: "14px",
           }}
-          onMouseOver={(e) => e.currentTarget.style.backgroundColor = "#c82333"}
-          onMouseOut={(e) => e.currentTarget.style.backgroundColor = "#dc3545"}
+          onMouseOver={e => (e.currentTarget.style.backgroundColor = "#c82333")}
+          onMouseOut={e => (e.currentTarget.style.backgroundColor = "#dc3545")}
         >
           <Link to="/" style={{ color: "white", textDecoration: "none" }}>
             Logout

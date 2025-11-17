@@ -19,7 +19,8 @@ function App() {
 
 function AppInner() {
   const location = useLocation();
-  const showNavFooter = location.pathname === "/Userdash";
+  const showNavFooter = ["/Userdash", "/Mymovies","/Search","/about"].includes(location.pathname);
+
 
   return (
     <>
@@ -35,6 +36,7 @@ function AppInner() {
           <Route path="/search" element={<Search />} />
         </Routes>
       </main>
+      <hr />
       {showNavFooter && <Footer />}
     </>
   );
