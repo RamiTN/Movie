@@ -6,7 +6,8 @@ import Home from "./Pages/Home.jsx";
 import About from "./Pages/About.jsx";
 import Mymovies from "./Pages/Mymovies.jsx";
 import Search from "./Pages/Search.jsx"; 
-import Footer from "./components/Footer.jsx"; 
+import Footer from "./components/Footer.jsx";
+import Dashboard from "./Pages/Dashboard.jsx"; 
 function App() { 
   return ( 
   <Router>
@@ -15,6 +16,7 @@ function App() {
   <Route path="/SignUp" element={<SignUp />} />
   <Route path="/SignIn" element={<SignIn />} />
   <Route path="/" element={<Home />} />
+  <Route path="/Dashboard" element={<Dashboard />} />
   <Route path="/about" element={<About />} /> 
   <Route path="/Mymovies" element={<Mymovies />} /> 
   <Route path="/Search" element={<Search />} /> 
