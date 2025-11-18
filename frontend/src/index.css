@@ -1,13 +1,14 @@
-*{
-  padding:0;
-  margin: 0;    
+* {
+  padding: 0;
+  margin: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
 
 .navbar {
-  background-color: blue;
+  background-color: rgb(40, 40, 40);
   color: white;
   display: flex;
   align-items: center;
@@ -21,14 +22,14 @@ html {
 
 .navbar:hover {
   padding: 50px 20px;
-  background-color: rgba(0, 0, 139, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
   gap: 40px;
-  margin-left: 350px;;
+  margin-left: 350px;
   padding: 0;
 }
 
@@ -42,22 +43,22 @@ html {
 }
 
 .navbar a:hover {
-  color: lightblue;
+  color: rgb(255, 0, 0);
   transform: scale(1.1);
 }
 
-.navbar h1{
-    margin-left: 50px;
+.navbar h1 {
+  margin-left: 50px;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;   
+  justify-content: center;
   min-height: 100vh;
   padding: 40px;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-  background: linear-gradient(to bottom, blue, lightblue);
+  background: linear-gradient(to bottom, rgb(40, 40, 40), rgb(53, 53, 53));
   color: white;
   text-align: center;
 }
@@ -67,36 +68,66 @@ main h1 {
   margin: 0;
 }
 
+main h5{
+  margin-left: 150px;
+}
+
 main button {
   padding: 12px 25px;
   border-radius: 10px;
-  background-color: rgb(63, 127, 149);
-  border: none;
+  background-color: rgb(255, 255, 255);
+  border: solid 2px rgb(98, 98, 98);
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  font-size: 5px;
 }
 
-/* Hover effect for button */
 main button:hover {
-  background-color: rgb(50, 100, 120);
+  background-color: rgb(255, 0, 0);
   transform: scale(1.05);
+  border-color: white;
+  width: 7%;
+  transition: 0.6s ease;
 }
 
-main button a {
-  list-style: none;
-  text-decoration: none;
+main button:hover a {
   color: white;
-  font-size: 16px;
-  font-weight: 500;
 }
 
-main button a {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+.signin-btn a{
+  color: black
 }
+
+.signin-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;                  
+  background-color: #ffffff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signin-btn span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.35s ease;
+}
+
+.signin-btn .text  { transition: opacity 0.35s ease; }
+.signin-btn .arrow { transition: transform 0.35s ease; transform: scale(0.9); }
+
+.signin-btn:hover .text  { opacity: 0; }
+.signin-btn:hover span   { transform: translateX(6px); }
+.signin-btn:hover .arrow { transform: scale(1.5); }
 
 .footer {
   display: flex;
@@ -104,7 +135,7 @@ main button a {
   align-items: center;
   padding: 40px;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-  background: linear-gradient(to bottom, lightblue, rgb(188, 246, 255));
+  background: linear-gradient(to bottom, rgb(52, 52, 52), rgb(0, 0, 0));
   color: white;
   text-align: center;
 }
@@ -114,10 +145,100 @@ main button a {
   margin: 0;
 }
 
-.footer ul a{
-    color: white;
-    text-decoration: none;
+.footer ul a {
+  color: white;
+  text-decoration: none;
 }
-.footer ul{
-        list-style-type: none;
+
+.footer ul {
+  list-style-type: none;
+  margin-left: 100px;
+}
+.footer h3{
+  margin-left: 100px;
+}
+.mymovies-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.mymovies-container h1 {
+  font-size: 10rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.movie-image {
+  width: 100%;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.movie-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.movie-button {
+  margin-top: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(255, 0, 0);
+  a{
+  color: white;}
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  font-size: 15px;
+  width: 100%;
+}
+
+.movie-button:hover {
+  background-color: rgb(88, 0, 0);
+  transform: scale(1.05);
+}
+.movieTitle:hover h4, .movieTitle:hover p{
+  color: red !important;
+}
+.cancel:hover{
+  background-color: rgb(108, 0, 0) !important;
+  color: #fff !important;
+  border:1px solid #fff !important;
+    padding: 20px !important;
+  transition: 0.6s ease !important;
+}
+.submit:hover{
+  background-color: rgb(1, 63, 1) !important;
+  color: #fff !important;
+  border:1px solid #fff !important;
+  padding: 20px !important;
+  transition: 0.6s ease !important;
+}
+.link a:hover{
+  color: red;
 }
