@@ -32,7 +32,7 @@ function SignIn(){
     return (
 <div>
   
-  <h1 style={{marginBottom:"40px"}}>Nightmovies</h1>
+  <h1 style={{marginBottom:"40px"}}>MovieNight</h1>
   <fieldset
     style={{
       height: "auto",

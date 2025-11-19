@@ -8,7 +8,7 @@ function SignUp() {
 
     const formData = new FormData(e.target);
     try {
-      const response = await fetch('http://localhost/NightMovies/backend/signUp.php', {
+      const response = await fetch('http://localhost/MovieNight/backend/signUp.php', {
         method: 'POST',
         body: formData
       });
@@ -31,7 +31,7 @@ function SignUp() {
 
   return (
     <div>
-      <h1 style={{marginBottom:"40px"}}>Nightmovies</h1>
+      <h1 style={{marginBottom:"40px"}}>MovieNight</h1>
  <fieldset
   style={{
     height: "auto",

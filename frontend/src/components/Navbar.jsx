@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
-      <h1>NightMovies</h1>
+      <h1>MovieNight</h1>
 
       <ul className="navul">
         <li className="navli"><Link to="/Userdash">Home</Link></li>
