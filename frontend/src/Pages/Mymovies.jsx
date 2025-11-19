@@ -13,7 +13,7 @@ function Mymovies() {
     <img src={movieImg} alt="movie1" />
   </div>
   <button className="movie-button"><a
-    href="https://moviz-time.live/?p=41879" 
+    href="https://moviz-time.live/?p=41879" target="_blank"
     allowfullscreen>Watch
 </a></button>
 </div>
@@ -22,7 +22,7 @@ function Mymovies() {
     <img src={movieImg1}alt="movie2" />
   </div>
   <button className="movie-button"><a
-    href="https://moviz-time.live/?p=87565" 
+    href="https://moviz-time.live/?p=87565" target="_blank"
     allowfullscreen>Watch
 </a></button>
 </div>
@@ -31,7 +31,7 @@ function Mymovies() {
   <div class="movie-image">
     <img src={movieImg2} alt="movie3" />
   </div>
-  <button className="movie-button"><a
+  <button className="movie-button"><a target="_blank"
     href="https://moviz-time.live/?p=108757" 
     allowfullscreen>Watch
 </a></button>
@@ -41,7 +41,7 @@ function Mymovies() {
     <img src={movieImg3} alt="movie3" />
   </div>
   <button className="movie-button"><a
-    href="https://www.youtube.com/watch?v=xBWmkwaTQ0k" 
+    href="https://www.youtube.com/watch?v=ObYh02ve6sY" target="_blank"
     allowfullscreen>Watch
 </a></button>
 </div>

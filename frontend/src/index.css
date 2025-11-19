@@ -1,56 +1,14 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.navbar {
-  background-color: rgb(40, 40, 40);
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  height: 100px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-.navbar:hover {
-  padding: 50px 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 40px;
-  margin-left: 350px;
-  padding: 0;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 25px;
-  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.navbar a:hover {
-  color: rgb(255, 0, 0);
-  transform: scale(1.1);
-}
-
-.navbar h1 {
-  margin-left: 50px;
-}
-
+/* ===== MAIN SECTION ===== */
 main {
   display: flex;
   flex-direction: column;
@@ -68,7 +26,7 @@ main h1 {
   margin: 0;
 }
 
-main h5{
+main h5 {
   margin-left: 150px;
 }
 
@@ -80,14 +38,13 @@ main button {
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-  font-size: 5px;
+  font-size: 16px;
 }
 
 main button:hover {
   background-color: rgb(255, 0, 0);
   transform: scale(1.05);
   border-color: white;
-  width: 7%;
   transition: 0.6s ease;
 }
 
@@ -95,16 +52,18 @@ main button:hover a {
   color: white;
 }
 
-.signin-btn a{
-  color: black
+main button a {
+  text-decoration: none;
+  color: inherit;
 }
 
+/* ===== SIGN IN BUTTON ===== */
 .signin-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 14px 28px;                  
+  padding: 14px 28px;
   background-color: #ffffff;
   color: white;
   border: none;
@@ -115,6 +74,11 @@ main button:hover a {
   overflow: hidden;
 }
 
+.signin-btn a {
+  color: black;
+  text-decoration: none;
+}
+
 .signin-btn span {
   display: inline-flex;
   align-items: center;
@@ -122,41 +86,28 @@ main button:hover a {
   transition: transform 0.35s ease;
 }
 
-.signin-btn .text  { transition: opacity 0.35s ease; }
-.signin-btn .arrow { transition: transform 0.35s ease; transform: scale(0.9); }
-
-.signin-btn:hover .text  { opacity: 0; }
-.signin-btn:hover span   { transform: translateX(6px); }
-.signin-btn:hover .arrow { transform: scale(1.5); }
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-  background: linear-gradient(to bottom, rgb(52, 52, 52), rgb(0, 0, 0));
-  color: white;
-  text-align: center;
+.signin-btn .text {
+  transition: opacity 0.35s ease;
 }
 
-.footer h1 {
-  font-size: 50px;
-  margin: 0;
+.signin-btn .arrow {
+  transition: transform 0.35s ease;
+  transform: scale(0.9);
 }
 
-.footer ul a {
-  color: white;
-  text-decoration: none;
+.signin-btn:hover .text {
+  opacity: 0;
 }
 
-.footer ul {
-  list-style-type: none;
-  margin-left: 100px;
+.signin-btn:hover span {
+  transform: translateX(6px);
 }
-.footer h3{
-  margin-left: 100px;
+
+.signin-btn:hover .arrow {
+  transform: scale(1.5);
 }
+
+/* ===== MOVIES CONTAINER ===== */
 .mymovies-container {
   max-width: 1200px;
   margin: 40px auto;
@@ -173,6 +124,12 @@ main button:hover a {
 
 .movies-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.movie-grid {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
@@ -181,14 +138,21 @@ main button:hover a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  padding: 10px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 0;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .movie-image {
   width: 100%;
-  height: 300px;
+  aspect-ratio: 2/3;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   display: flex;
@@ -197,11 +161,19 @@ main button:hover a {
   position: relative;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.movie-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .movie-image:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .movie-button {
@@ -210,35 +182,339 @@ main button:hover a {
   border: none;
   border-radius: 8px;
   background-color: rgb(255, 0, 0);
-  a{
-  color: white;}
+  color: white;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
   font-size: 15px;
   width: 100%;
 }
 
+.movie-button a {
+  color: white;
+  text-decoration: none;
+}
+
 .movie-button:hover {
   background-color: rgb(88, 0, 0);
   transform: scale(1.05);
 }
-.movieTitle:hover h4, .movieTitle:hover p{
+
+.movieTitle:hover h4,
+.movieTitle:hover p {
   color: red !important;
 }
-.cancel:hover{
+
+.cancel:hover {
   background-color: rgb(108, 0, 0) !important;
   color: #fff !important;
-  border:1px solid #fff !important;
-    padding: 20px !important;
-  transition: 0.6s ease !important;
-}
-.submit:hover{
-  background-color: rgb(1, 63, 1) !important;
-  color: #fff !important;
-  border:1px solid #fff !important;
+  border: 1px solid #fff !important;
   padding: 20px !important;
   transition: 0.6s ease !important;
 }
-.link a:hover{
+
+.submit:hover {
+  background-color: rgb(1, 63, 1) !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+  padding: 20px !important;
+  transition: 0.6s ease !important;
+}
+
+.link a:hover {
   color: red;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* 4K and Ultra-Wide Displays (2560px+) */
+@media (min-width: 2560px) {
+  main h1 {
+    font-size: 120px;
+  }
+
+  .mymovies-container {
+    max-width: 2400px;
+  }
+
+  .mymovies-container h1 {
+    font-size: 12rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .movie-card {
+    padding: 20px;
+  }
+
+  .movie-button {
+    font-size: 18px;
+    padding: 14px 24px;
+  }
+
+  .signin-btn {
+    padding: 18px 36px;
+    font-size: 20px;
+  }
+}
+
+/* Large Displays (1920px - 2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  main h1 {
+    font-size: 110px;
+  }
+
+  .mymovies-container {
+    max-width: 1800px;
+  }
+
+  .mymovies-container h1 {
+    font-size: 11rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .movie-card {
+    padding: 18px;
+  }
+
+  .movie-button {
+    font-size: 17px;
+  }
+
+  .signin-btn {
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+}
+
+/* Standard Large Desktop (1400px - 1919px) */
+@media (min-width: 1400px) and (max-width: 1919px) {
+  .mymovies-container {
+    max-width: 1400px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Medium Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .mymovies-container h1 {
+    font-size: 8rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablets and Small Desktop (900px - 1199px) */
+@media (min-width: 900px) and (max-width: 1199px) {
+  main h1 {
+    font-size: 70px;
+  }
+
+  .mymovies-container h1 {
+    font-size: 6rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .movie-card {
+    padding: 12px;
+  }
+}
+
+/* Tablet Portrait (600px - 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  main {
+    padding: 30px;
+  }
+
+  main h1 {
+    font-size: 55px;
+  }
+
+  .mymovies-container {
+    margin: 30px auto;
+  }
+
+  .mymovies-container h1 {
+    font-size: 4.5rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .movie-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* Mobile Landscape and Small Tablets (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+  main {
+    padding: 25px;
+  }
+
+  main h1 {
+    font-size: 42px;
+  }
+
+  main h5 {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  main button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .signin-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .mymovies-container {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  .mymovies-container h1 {
+    font-size: 3.5rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .movie-card {
+    padding: 10px;
+  }
+
+  .movie-button {
+    font-size: 13px;
+    padding: 9px 14px;
+  }
+}
+
+/* Mobile Portrait (max-width: 479px) */
+@media (max-width: 479px) {
+  main {
+    padding: 20px 15px;
+  }
+
+  main h1 {
+    font-size: 36px;
+  }
+
+  main h5 {
+    margin-left: 0;
+    font-size: 13px;
+  }
+
+  main button {
+    font-size: 13px;
+    padding: 9px 18px;
+  }
+
+  .signin-btn {
+    padding: 11px 22px;
+    font-size: 13px;
+  }
+
+  .mymovies-container {
+    margin: 15px auto;
+    padding: 0 10px;
+  }
+
+  .mymovies-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .movie-card {
+    padding: 12px;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .movie-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* Very Small Mobile (max-width: 360px) */
+@media (max-width: 360px) {
+  main h1 {
+    font-size: 30px;
+  }
+
+  .mymovies-container h1 {
+    font-size: 2.3rem;
+  }
+
+  .signin-btn {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
 }

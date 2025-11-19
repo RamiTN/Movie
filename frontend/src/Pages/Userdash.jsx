@@ -22,6 +22,7 @@ function Userdash() {
         "pirates",
         "transformers",
         "terminator",
+        "sex"
       ];
 
       const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
@@ -105,14 +106,7 @@ function Userdash() {
       )}
 
       {!loading && !error && movies.length > 0 && (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, minmax(200px, 1fr))",
-            gap: "24px",
-            marginTop: "20px",
-          }}
-        >
+        <div className="movie-grid">
           {movies.map((movie) => (
             <div
               key={movie.imdbID}

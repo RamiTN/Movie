@@ -1,0 +1,150 @@
+/* ===== FOOTER ===== */
+.footer {
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  background: linear-gradient(to bottom, rgb(52, 52, 52), rgb(0, 0, 0));
+  color: white;
+  padding: 40px 60px 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  margin-top: 0;
+  color: #fff;
+}
+
+.footer .link {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .link li {
+  margin-bottom: 12px;
+}
+
+.footer .link a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer .link a:hover {
+  color: rgb(255, 0, 0);
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.contact-info strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.icons a {
+  color: white;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.icons a:hover {
+  color: rgb(255, 0, 0);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 30px 40px 20px;
+  }
+
+  .footer-content {
+    gap: 30px;
+  }
+}
+
+/* Mobile - Large (768px and below) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .icons {
+    justify-content: center;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}
+
+/* Mobile - Small (425px and below) */
+@media (max-width: 425px) {
+  .footer {
+    padding: 25px 15px 15px;
+  }
+
+  .footer-content {
+    gap: 30px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer .link a,
+  .contact-info p {
+    font-size: 0.85rem;
+  }
+
+  .icons svg {
+    width: 1.75em;
+    height: 1.75em;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+}
