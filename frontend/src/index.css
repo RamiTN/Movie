@@ -390,6 +390,9 @@ main button a {
     font-size: 14px;
     padding: 10px 16px;
   }
+  .inptmovie{
+ width: 150px; 
+}
 }
 
 /* Mobile Landscape and Small Tablets (480px - 599px) */
@@ -444,6 +447,9 @@ main button a {
     font-size: 13px;
     padding: 9px 14px;
   }
+    .inptmovie{
+ width: 150px; 
+}
 }
 
 /* Mobile Portrait (max-width: 479px) */
@@ -501,6 +507,9 @@ main button a {
     font-size: 14px;
     padding: 10px 16px;
   }
+    .inptmovie{
+ width: 150px; 
+}
 }
 
 /* Very Small Mobile (max-width: 360px) */
@@ -517,4 +526,36 @@ main button a {
     padding: 10px 20px;
     font-size: 12px;
   }
+    .inptmovie{
+ width: 150px; 
 }
+}
+  .inptmovie{
+ padding: 10px;
+  width: auto;
+   margin-right: 10px;
+   margin-bottom:40px;
+  }
+/* ===== RESPONSIVE .inptmovie FOR SPECIFIC PHONES ===== */
+
+/* Tall phones portrait: 720x1612 and 720x1600 */
+@media screen and (width: 720px) and (min-height: 1600px) and (max-height: 1612px) {
+    .inptmovie {
+        width: 90%; /* almost full width */
+        max-width: 150px; /* optional max width */
+        padding: 10px;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+
+/* Wide phone landscape: 1560x720 */
+@media screen and (width: 1560px) and (height: 720px) {
+    .inptmovie {
+        width: 150px; /* keep default width */
+        padding: 10px;
+        margin-right: 10px;
+        margin-bottom: 40px;
+    }
+}
+

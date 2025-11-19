@@ -25,7 +25,7 @@ function About() {
                 </p>
                 <p>
                     I am proud of this work and believe it reflects my ability to learn independently, solve problems creatively, and implement fully functional web applications. 
-                    If you would like to learn more about this project, see it in action, or discuss my approach and experience, please feel free to <strong><Link to="#bottom" style={{  color: "#ff0000ff" }}>contact me</Link></strong></p>
+                    If you would like to learn more about this project, see it in action, or discuss my approach and experience, please feel free to <strong><a href="https://github.com/RamiTN" style={{  color: "#ff0000ff" }}>contact me</a></strong></p>
         </div>
     );
 }

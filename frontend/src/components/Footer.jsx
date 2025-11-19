@@ -5,21 +5,21 @@ function Footer() {
   return (
     <footer className="footer">
       <div>
-      <h3>Quick links</h3>
+      <h3>Quick links</h3><br />
             <ul className="link">
         <li><Link to="/Userdash">Home</Link></li>
         <li><Link to="/Mymovies">Mymovies</Link></li>
         <li><Link to="/Search">Find movies</Link></li>
         <li><Link to="/about">About</Link></li>
       </ul>
-      </div>
+      </div><br />
             <div>
       <p>© Copyrights provided all rights reserved 2025</p>
-      </div>
+      </div><br /><br />
       <div>
-      <h3>Contact</h3><br /><br />
+      <h3>Contact</h3><br />
       Téléphone:
-(+216) 94 11 18 03 - (+216) 94 47 72 11
+(+216) 94 11 18 03 - (+216) 94 47 72 11 <br /><br />
 Adresse:
 Bizerte-Tunisia <br /><br />
 Horaires:
