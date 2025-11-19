@@ -1,7 +1,7 @@
-import movieImg from "../assets/1917.jpeg"; 
-import movieImg1 from "../assets/F&F TD.jpeg";
-import movieImg2 from "../assets/AgeOFglas.jpeg"
-import movieImg3 from "../assets/DownFaull.jpeg"
+import movieImg from "../assets/image/1917.jpeg"; 
+import movieImg1 from "../assets/image/F&F TD.jpeg";
+import movieImg2 from "../assets/image/AgeOFglas.jpeg"
+import movieImg3 from "../assets/image/DownFaull.jpeg"
 
 function Mymovies() {
   return (
