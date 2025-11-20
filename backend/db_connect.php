@@ -1,12 +1,13 @@
 <?php
+$servername = "sql305.infinityfree.com";
+$username = "if0_40460488";
+$password = "rami270803";
+$database = "if0_40460488_Movies";
 
-$host = "sql305.infinityfree.com";
-$user = "if0_40460488";
-$pass = "rami270803";
-$db   = "if0_40460488_Movies";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
 
-$conn = mysqli_connect($host, $user, $pass, $db);
-
+// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }

@@ -8,7 +8,7 @@ function SignUp() {
 
     const formData = new FormData(e.target);
     try {
-      const response = await fetch('http://localhost/MovieNight/backend/signUp.php', {
+      const response = await fetch('https://movienight.42web.io/movie-app/backend/signUp.php', {
         method: 'POST',
         body: formData
       });
@@ -61,7 +61,7 @@ function SignUp() {
   <span>
     <Link to="/">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width="2.2em"
       height="2.2em"

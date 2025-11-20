@@ -29,7 +29,7 @@ Lundi - Vendredi: 8H30 AM - 5:30 <br /><br />
     <div className="icons">
       <a href="https://www.linkedin.com/in/abbassi-rami-786253340/" target="_blank">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width="2em"
       height="2em"
@@ -43,7 +43,7 @@ Lundi - Vendredi: 8H30 AM - 5:30 <br /><br />
     </svg></a>
     <a href="https://www.facebook.com/rami.abbassi.477961" target="_blank">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       viewBox="0 0 1000 1000"
       width="2em"
       height="2em"
@@ -55,7 +55,7 @@ Lundi - Vendredi: 8H30 AM - 5:30 <br /><br />
     </svg></a>
     <a href="https://github.com/RamiTN" target="_blank">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       viewBox="0 0 24 25"
       width="2em"
       height="2em"

@@ -11,7 +11,7 @@ function Home(){
   <Link to="/SignIn" className="signin-link">
     <span className="arrow">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
       width="1em"
       height="1em"
